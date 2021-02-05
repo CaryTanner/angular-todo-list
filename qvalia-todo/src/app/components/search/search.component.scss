@@ -1,0 +1,27 @@
+@import '../../../styles/colors';
+@import '../../../styles/variables';
+
+
+.search-container {
+    display: flex;
+    flex-direction: row;
+    border: 2px solid $contrastColor;
+    background-color: $contrastColor;
+    border-radius: $borderRadius;
+    color: $primaryColor;
+  
+    input {
+      border: none;
+      font-size: 1rem;
+      height: 1.5rem;
+      padding: 0 0.5rem;
+      border-radius: $borderRadius;
+      transition: 300ms ease-out;
+      width: 220px;
+    }
+  
+    input:focus-within {
+      width: 450px;
+      max-width: 80vw;
+    }
+  }
