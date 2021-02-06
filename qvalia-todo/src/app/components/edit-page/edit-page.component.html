@@ -1,1 +1,11 @@
-<p>edit-page works!</p>
+
+  <form class="form-container">
+    <label for="content"><h2>Update Todo</h2></label>
+    <input type="text" id="editText" name="content" [formControl]="editText" />
+    <div class="button-container"> 
+        <a [routerLink]="['']"><button>Back<i class="icon" data-feather="arrow-right"></i></button></a>
+    <button>Update &nbsp;<i class="icon" data-feather="edit"></i></button>
+    </div>
+    
+  </form>
+

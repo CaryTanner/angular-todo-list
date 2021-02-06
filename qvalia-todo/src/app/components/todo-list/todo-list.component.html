@@ -1,5 +1,18 @@
 
-  
-    <div class="todo-list"> todo </div>
- 
+<div class="todo-list">
+  <div class="button-container">
+    <a [routerLink]="['/create']"
+      ><button><i class="icon" data-feather="plus"></i>Add Todo</button></a
+    >
+  </div>
+  <div>
+    <app-todo-card
+      *ngFor="let todo of todos"
+      [todo]="todo"
+      
+      (delete)="deleteTodo($event)"
+    ></app-todo-card>
+  </div>
+  <h1 *ngIf="todos && todos.length === 0">Congrats you're finished!</h1>
+</div>
 

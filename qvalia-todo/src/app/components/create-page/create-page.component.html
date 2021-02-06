@@ -1,1 +1,12 @@
-<p>create-page works!</p>
+<div>
+  <form class="form-container">
+    <label for="content"><h2>Add Todo</h2></label>
+    <input type="text" id="createText" name="content" [formControl]="createText" placeholder="Add your todo"/>
+    <div class="button-container">
+      <a [routerLink]="['']"
+        ><button><i class="icon" data-feather="arrow-left"></i>Back</button
+      ></a>
+      <button><i class="icon" data-feather="plus"></i>Add Todo</button>
+    </div>
+  </form>
+</div>

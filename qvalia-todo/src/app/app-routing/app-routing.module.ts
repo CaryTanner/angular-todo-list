@@ -6,8 +6,8 @@ import { CreatePageComponent } from '../components/create-page/create-page.compo
 
 const routes: Routes = [
   { path: '', component: TodoListComponent  },
-  { path: 'edit/:id', component: EditPageComponent},
-  { path: 'create', component: CreatePageComponent}
+  { path: 'edit/:id', component: EditPageComponent, data: { animation: 'isLeft' }},
+  { path: 'create', component: CreatePageComponent, data: { animation: 'isRight' }}
 ];
 
 @NgModule({

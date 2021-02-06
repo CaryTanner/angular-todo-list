@@ -9,7 +9,8 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { EditPageComponent } from './components/edit-page/edit-page.component';
 import { CreatePageComponent } from './components/create-page/create-page.component';
 import { SearchComponent } from './components/search/search.component';
-
+import { TodoCardComponent } from './components/todo-card/todo-card.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,13 +18,15 @@ import { SearchComponent } from './components/search/search.component';
     NavBarComponent,
     EditPageComponent,
     CreatePageComponent,
-    SearchComponent
+    SearchComponent,
+    TodoCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

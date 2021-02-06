@@ -1,10 +1,15 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import * as feather from 'feather-icons';
+import { slider } from './animations/route-animations';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
+  animations: [
+    slider
+  ]
 })
 export class AppComponent implements OnInit {
   title = 'qvalia-todo';
@@ -12,6 +17,10 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     //replace 'data-feather' with icons
     feather.replace();
+  }
+
+  prepareRoute(outlet: RouterOutlet) {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
 }
