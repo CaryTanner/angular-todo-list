@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/models/Todo';
 import { TodoService } from 'src/app/services/todo.service';
 import * as feather from 'feather-icons';
+import { Subject } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 
 @Component({
@@ -10,27 +12,34 @@ import * as feather from 'feather-icons';
 
 })
 export class TodoListComponent implements OnInit {
-  todos: Todo[];
+  
+
+  unfinished
+  finished
 
 
-  constructor( private todoService:TodoService) { }
+  constructor( private todoService: TodoService) { 
+   
+  }
 
   ngOnInit(): void {
     //icons
     feather.replace()
+    this.todoService.fetchTodos()
+   
     
-    //fetch all todos
-    this.todoService.getTodos().subscribe(todos => {
-      this.todos = todos
+    this.finished = this.todoService.todos.pipe(
+      map(todos => todos.filter(todo => todo.complete === true) )
+    )
+    this.unfinished = this.todoService.todos.pipe(
+      map(todos => todos.filter(todo => todo.complete === false) )
+    )
+    
       
-    });
+    
+   
   }
 
-  deleteTodo(todo: Todo){
-    //remove from UI
-    this.todos = this.todos.filter(t => t._id !== todo._id);
-    //
-      this.todoService.deleteTodo(todo)
-  }
+  
 
 }

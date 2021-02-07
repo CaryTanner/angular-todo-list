@@ -1,6 +1,6 @@
 export interface Todo{
     content: string;
-    complete: boolean;
+    complete?: boolean;
     _id?: string;
     
 }

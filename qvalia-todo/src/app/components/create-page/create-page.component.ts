@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import * as feather from 'feather-icons';
+import { TodoService } from 'src/app/services/todo.service';
 
 
 @Component({
@@ -9,11 +10,33 @@ import * as feather from 'feather-icons';
   
 })
 export class CreatePageComponent implements OnInit {
-  createText = new FormControl('')
-  constructor() { }
+  content = new FormControl('', [Validators.required])
+  showMessage: boolean = false
+  
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
     feather.replace()
+
+    //fetch all todos so search bar can use them 
+    this.todoService.fetchTodos()
+  }
+
+  setShowMessage(){
+    this.showMessage = true
+    setTimeout(() => {
+      this.showMessage = false
+    }, 2000)
+  }
+
+  onSubmit(){
+  
+   if(this.content.valid) { 
+   this.todoService.addTodo({content: this.content.value})
+   this.content.reset()
+   this.setShowMessage() 
+  } 
+   
   }
 
 }

@@ -11,13 +11,11 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border: none;
-  
 }
 
 h1 {
   font-size: 1.8rem;
   font-weight: normal;
-  
 }
 
 h2 {
@@ -40,24 +38,22 @@ a,
 a:visited {
   color: inherit;
   text-decoration: inherit;
-  
 }
 
 //----  position for route animations ----
-.router-container{
+.router-container {
   position: relative;
-  
 }
-
 
 //----- button -------- //
 
-button, .button {
+button,
+.button {
   min-width: 180px;
   background-color: $primaryColor;
   border-radius: 999px;
   text-transform: uppercase;
-  padding: .5rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   color: $contrastColor;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
   transition: 300ms;
@@ -65,22 +61,19 @@ button, .button {
   align-items: center;
   justify-content: center;
   margin: 10px 0;
-  
-  &:hover{
+  cursor: pointer;
+
+  &:hover {
     background-color: $darkColor;
-    
+
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.3);
   }
-  .icon{
+  .icon {
     padding: 3px;
     height: 1.5rem;
     width: 1.5rem;
-
   }
 }
-
-
-
 
 //  -----------  nav & search  --------------//
 
@@ -109,7 +102,6 @@ button, .button {
   color: $primaryColor;
 
   input {
-   
     font-size: 1rem;
     height: 1.5rem;
     padding: 0 0.5rem;
@@ -130,7 +122,7 @@ button, .button {
   margin: 3rem auto;
   max-width: 500px;
   min-height: 500px;
-  
+
   display: flex;
   flex-direction: column;
 
@@ -138,10 +130,9 @@ button, .button {
     width: 100%;
     text-align: center;
   }
-  .button-container{
+  .button-container {
     display: flex;
     justify-content: flex-end;
-    
   }
 }
 
@@ -156,19 +147,18 @@ button, .button {
   align-items: center;
   padding: 0.5rem 1rem;
   border-radius: $borderRadius;
-  transition: box-shadow 0.2s ease;  
-  
+  transition: box-shadow 0.2s ease;
+
+
   &:hover {
     box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.35);
-
-      
-    }
+  }
 
   .icon-button-container {
-    width: 150px;
+    min-width: 150px;
     display: flex;
     justify-content: space-evenly;
-   
+
     transition: opacity 200ms;
   }
 
@@ -183,8 +173,8 @@ button, .button {
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
     transition: 300ms;
     border: 1px solid $lightColor;
-  
-    &:hover{
+
+    &:hover {
       background-color: $primaryColor;
       color: $contrastColor;
       transform: scale(1.05);
@@ -195,13 +185,13 @@ button, .button {
 
 // --- edit and add todo forms  --- //
 
-.form-container{
+.form-container {
   margin: 3rem auto;
   border-radius: $borderRadius;
   min-height: 350px;
   max-width: 500px;
   text-align: center;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: space-around;
   padding: 0 2rem;
@@ -210,24 +200,57 @@ button, .button {
   input {
     width: 100%;
     border-bottom: 1px solid $textColor;
+    height: 1.5rem;
+    font-size: 1.5rem;
+    transition: border 400ms ease-out;
   }
-  .button-container{
+
+  .ng-invalid.ng-touched {
+    border-color: #d9534e !important; 
+  }
+
+  
+  .error {
+    font-size: 1rem;
+    color: #d9534e;
+    width: 100%;
+    text-align: left;
+    margin: 5px 0;
+    opacity: 0;
+    transition: 200ms;    
+  }
+
+  .success-message{
+    font-size: 1rem;
+    color: $textColor;
+    position: absolute;
+    top: 200px;
+    left: calc(50% - 44px); //center - half of lenghth of words
+    transition: 500ms;
+    transform: translate(0, 20px);
+    opacity: 0;
+  }
+  //show success and error messages
+ .visible{
+    opacity: 1;
+    transform: translate(0, 0)
+  }
+
+  .button-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    
+  }
+
+  .disabled{
+    opacity: .5;
+    cursor: default;
+
+    &:hover{
+      background-color: $primaryColor;
+    }
   }
 }
-
-.ng-invalid.ng-dirty,
-.ng-invalid.ng-dirty:focus {
-  border-color: #d9534e !important;
-}
-
-
-
-
-
 
 //-------- media queries ---------//
 
@@ -240,30 +263,27 @@ button, .button {
       margin: 0.5rem 0;
     }
   }
-  
-  .form-container, .todo-list {
+
+  .form-container,
+  .todo-list {
     margin: 3rem 1rem 0 1rem;
   }
 }
 
 @media (max-width: 500px) {
-  .form-container{
-    .button-container{
-        flex-direction: column-reverse;
-        align-items: center;
+  .form-container {
+    .button-container {
+      flex-direction: column-reverse;
+      align-items: center;
     }
   }
 }
 
 @media (max-width: 380px) {
-  .todo-card{
+  .todo-card {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     min-height: 90px;
   }
 }
-
-
-
-

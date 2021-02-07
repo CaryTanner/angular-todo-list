@@ -1,9 +1,15 @@
 <div class="todo-card">
-  <h3>{{ todo.content }} </h3>
+  <h3>{{ todo.content }}</h3>
   <p *ngIf="todo.complete">finished</p>
   <div class="icon-button-container">
-    <i class="icon" data-feather="check" [title]="'Mark Completed'"></i>
-    <a [routerLink]="['/edit', todo._id ]" [title]="'Update todo'"><i   class="icon" data-feather="edit-3" ></i></a>
-    <i class="icon" data-feather="trash"  (click)="onDeleteClick(todo)"></i>
+    <div (click)="onToggleComplete()">
+      <i class="icon" data-feather="check" ></i>
+    </div>
+    <a [routerLink]="['/edit', todo._id]" [title]="'Update todo'"
+      ><i class="icon" data-feather="edit-3"></i
+    ></a>
+    <div (click)="onDeleteClick()">
+      <span class="icon" data-feather="trash"></span>
+    </div>
   </div>
 </div>

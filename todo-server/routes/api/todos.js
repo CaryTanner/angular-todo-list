@@ -22,6 +22,23 @@ router.get("/", async (req, res) => {
   }
 });
 
+// @route GET /api/todos/:id
+// get single todo
+// access Public
+
+router.get("/:id", async (req, res) => {
+  
+  try {
+    const todo = await Todo.findById(req.params.id);
+    if (!todo) throw Error("Could not find todo");
+
+    res.status(200).json(
+      todo);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
+});
+
 // @route POST /api/todos
 // make new todo
 // access public
@@ -49,7 +66,7 @@ router.post("/", async (req, res) => {
 router.put("/:id", async (req, res) => {
   try {
     let id = req.params.id;
-
+  
     let found = await Todo.findById(id);
     if (!found) throw Error("Could find update todo");
 

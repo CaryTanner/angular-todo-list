@@ -1,18 +1,66 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import * as feather from 'feather-icons';
+import { Observable } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { Todo } from 'src/app/models/Todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 @Component({
   selector: 'app-edit-page',
   templateUrl: './edit-page.component.html',
-  
 })
 export class EditPageComponent implements OnInit {
-  editText = new FormControl('')
-  constructor() { }
+  content = new FormControl('', [Validators.required]);
+  todo: Observable<Todo>
+  todoID: string;
+  showMessage: boolean = false
+
+  constructor(
+    private todoService: TodoService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    feather.replace()
+    feather.replace();
+
+    const routeParams = this.route.snapshot.paramMap;
+    this.todoID = routeParams.get('id');
+    //get all todos so this one can update the correct index
+    this.todoService.fetchTodos()
+    //get single todo from param id & populate input value
+    this.todo = this.todoService.getSingleTodo(this.todoID).pipe(tap(todo => this.content.patchValue(todo.content)))
+    
+     
   }
 
+  setShowMessage(){
+    this.showMessage = true
+    setTimeout(() => {
+      this.showMessage = false
+      
+    }, 1700)
+  }
+
+ sendUpdate = async () => {}
+
+
+ 
+  onSubmit = async () => {
+    if (this.content.valid) {
+     this.todoService.updateTodo({
+        content: this.content.value,
+        _id: this.todoID,
+        
+      });
+      
+     this.setShowMessage() 
+
+     setTimeout(()=>{
+      this.router.navigate(['']);
+     }, 2100)
+    }
+  };
 }

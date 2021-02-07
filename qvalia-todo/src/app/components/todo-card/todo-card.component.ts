@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import * as feather from 'feather-icons';
 import { Todo } from 'src/app/models/Todo';
+import { TodoService } from 'src/app/services/todo.service';
 
 
 @Component({
@@ -12,22 +13,22 @@ export class TodoCardComponent implements OnInit {
 
   @Input() todo: Todo
   
-  
-  @Output('delete') deleteEvent: EventEmitter<Todo> = new EventEmitter();
 
-  
-
-
-  constructor() { }
+  constructor(private todoService: TodoService) { }
 
   ngOnInit(): void {
     feather.replace()
   }
 
-  onDeleteClick(todo: Todo){
-    console.log('delete clicked')
-    this.deleteEvent.emit(todo)
+  onDeleteClick(){
+    this.todoService.deleteTodo(this.todo)
 
   }
+
+  onToggleComplete(){
+    this.todoService.updateTodo({content: this.todo.content, _id: this.todo._id, complete: !this.todo.complete})
+  }
+
+  
 
 }

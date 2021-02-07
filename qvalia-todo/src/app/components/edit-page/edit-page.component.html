@@ -1,11 +1,21 @@
-
-  <form class="form-container">
-    <label for="content"><h2>Update Todo</h2></label>
-    <input type="text" id="editText" name="content" [formControl]="editText" />
-    <div class="button-container"> 
-        <a [routerLink]="['']"><button>Back<i class="icon" data-feather="arrow-right"></i></button></a>
-    <button>Update &nbsp;<i class="icon" data-feather="edit"></i></button>
+<form class="form-container" autocomplete="off">
+  <label for="content"><h1>Edit Todo</h1></label>
+  <div *ngIf="todo | async ">
+    <input type="text" name="content" [formControl]="content" required />
+    <div [ngClass]="{'visible' : content.invalid && (content.touched || content.dirty)}"  class="error">
+      Enter a todo
     </div>
+  </div>
+  <div class="success-message" [ngClass]="{'visible' : showMessage}">Todo updated!</div>
+  <div class="button-container">
+    <a [routerLink]="['']"
+      ><button>Back<i class="icon" data-feather="arrow-right"></i></button
+    ></a>
     
-  </form>
-
+    <div 
+    
+    class="button" (click)="onSubmit()">
+      Edit &nbsp;<i class="icon" data-feather="edit"></i>
+    </div>
+  </div>
+</form>

@@ -7,12 +7,17 @@
   </div>
   <div>
     <app-todo-card
-      *ngFor="let todo of todos"
+      *ngFor="let todo of unfinished | async"
       [todo]="todo"
       
-      (delete)="deleteTodo($event)"
+    ></app-todo-card>
+  
+    <app-todo-card
+      *ngFor="let todo of finished | async"
+      [todo]="todo"
+    
     ></app-todo-card>
   </div>
-  <h1 *ngIf="todos && todos.length === 0">Congrats you're finished!</h1>
+  <h1 *ngIf="!unfinished && !finished" >Congrats you're finished!</h1>
 </div>
 
