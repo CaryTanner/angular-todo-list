@@ -50,17 +50,18 @@ export class EditPageComponent implements OnInit {
  
   onSubmit = async () => {
     if (this.content.valid) {
+
+      this.setShowMessage()
+
      this.todoService.updateTodo({
         content: this.content.value,
         _id: this.todoID,
         
       });
       
-     this.setShowMessage() 
+      
 
-     setTimeout(()=>{
-      this.router.navigate(['']);
-     }, 2100)
+    
     }
   };
 }

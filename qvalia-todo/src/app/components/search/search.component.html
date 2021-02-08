@@ -1,15 +1,27 @@
-
-  <form class="search-container" autocomplete="off">
-    <input
-      type="text"
-      id="searchText"
-      [formControl]="searchText"
-      aria-label="submit search"
-      placeholder="Search Todos"
+<form class="search-container" autocomplete="off">
+  <input
+    type="text"
+    id="searchText"
+    name="searchText"
+    [formControl]="searchText"
+    placeholder="Search Todos"
+    onfocus="this.placeholder = ''"
+    onblur="this.placeholder = 'Search Todos'"
+    (click)="setIsMenuOpen()"
+    [ngClass]="{ 'open-search-menu': isMenuOpen }"
+    #searchInput
+    tabindex="0"
+    (keydown)="$event.target.click()"
+  /><i data-feather="search"></i>
+  <div
+    class="search-results"
+    [ngClass]="{ 'open-results-menu': isMenuOpen }"
+    #searchResults
+  >
+    <app-todo-card
+      *ngFor="let todo of unfinished | async | appFilter: this.searchText.value"
+      [todo]="todo"
       
-      
-      onfocus="this.placeholder = ''"
-      onblur="this.placeholder = 'Search Todos'"
-    /><i data-feather="search"></i>
-  </form>
-
+    ></app-todo-card>
+  </div>
+</form>

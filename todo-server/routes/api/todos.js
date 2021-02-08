@@ -10,7 +10,7 @@ import Todo from "../../models/Todo";
 
 router.get("/", async (req, res) => {
   try {
-    const todos = await Todo.find({});
+    const todos = await Todo.find({}).sort({ date: 1 });
     if (!todos){
       res.status(200).send([])
     }

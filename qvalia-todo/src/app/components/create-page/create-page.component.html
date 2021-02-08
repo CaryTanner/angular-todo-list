@@ -1,6 +1,6 @@
 <div>
-  <form class="form-container" autocomplete="off" >
-    <label for="content"><h1>Add Todo</h1></label>
+  <form class="form-container" autocomplete="off" (ngSubmit)="onSubmit()" >
+    <label for="content"><h1> <i data-feather="plus-square" ></i> Add Todo</h1></label>
     <div>
     <input
       type="text"
@@ -10,9 +10,10 @@
       placeholder="Add your todo"
       onfocus="this.placeholder = ''"
       required
+      (keydown.enter)="$event.preventDefault()"
     />
     <div [ngClass]="{'visible' : content.invalid && (content.touched || content.dirty)}" class="error">
-        Enter a todo
+       Enter a todo
     </div>
     </div>
 
@@ -20,10 +21,13 @@
 
 
     <div class="button-container">
+        
       <a [routerLink]="['']"
         ><button><i class="icon" data-feather="arrow-left"></i>Back</button></a
       >
       <div 
+      tabindex="0"
+      (keydown.enter)="$event.target.click()"
       [ngClass]="{'disabled' : content.invalid }"
       class="button" (click)="onSubmit()">
         <i class="icon" data-feather="plus"></i>Add Todo

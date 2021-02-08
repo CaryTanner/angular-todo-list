@@ -8,6 +8,7 @@ import { TodoService } from 'src/app/services/todo.service';
   selector: 'app-todo-card',
   templateUrl: './todo-card.component.html',
   
+  
 })
 export class TodoCardComponent implements OnInit {
 
@@ -26,7 +27,7 @@ export class TodoCardComponent implements OnInit {
   }
 
   onToggleComplete(){
-    this.todoService.updateTodo({content: this.todo.content, _id: this.todo._id, complete: !this.todo.complete})
+    this.todoService.toggleComplete({content: this.todo.content, _id: this.todo._id, complete: !this.todo.complete})
   }
 
   

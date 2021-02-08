@@ -38,6 +38,6 @@ function slideTo(direction) {
         animate('600ms ease', style({ [direction]: '0%'}))
       ])
     ]),
-    
+   
   ];
 }

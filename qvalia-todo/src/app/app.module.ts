@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +11,9 @@ import { CreatePageComponent } from './components/create-page/create-page.compon
 import { SearchComponent } from './components/search/search.component';
 import { TodoCardComponent } from './components/todo-card/todo-card.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FilterPipe } from './pipes/filter.pipe';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,14 +22,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     EditPageComponent,
     CreatePageComponent,
     SearchComponent,
-    TodoCardComponent
+    TodoCardComponent,
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
