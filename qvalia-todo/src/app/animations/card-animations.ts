@@ -35,7 +35,7 @@ export const cardSlide = trigger('cardAnimations', [
           '50ms',
           animate(
             '550ms ease-out',
-            style({ opacity: 0, transform: 'translateX(60%)' })
+            style({ opacity: 0, transform: 'translateX(60%)', height: 0 })
           )
         ),
       ],
