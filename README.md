@@ -9,7 +9,7 @@ Tech: Angular 11, Mongo DB Atlas, Nodejs with Mongoose and Express
 ## Live Demo 
 -----------------------------------------------
 
-[Tanner's Todos](https://todo-list-q.herokuapp.com/)
+[Tanner's Todos](https://q-todo-list.herokuapp.com/)
 
 ## Install
 ------------------------------------------------
