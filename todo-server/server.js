@@ -31,9 +31,9 @@ app.use('/api/todos', todosRoutes)
 //serve static routes in production
 if(process.env.NODE_ENV === 'production'){
     //set a static folder
-    app.use(express.static('qvalia-todo/dist'))
+    app.use(express.static('qvalia-todo/dist/qvalia-todo'))
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'qvalia-todo', 'dist', 'index.html'))
+        res.sendFile(path.resolve(__dirname, 'qvalia-todo', 'dist', 'qvalia-todo', 'index.html'))
     })
 }
 
