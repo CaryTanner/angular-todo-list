@@ -26,8 +26,6 @@ export class TodoService {
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  
-
   // Get Todos
   fetchTodos() {
     this.http.get<Todo[]>(`${this.todosUrl}`).subscribe(
@@ -61,7 +59,7 @@ export class TodoService {
         // settimeout to give UI feedback on edit page
         setTimeout(() => {
           this.router.navigate(['']);
-        }, 1000);
+        }, 700);
       },
       (error) => console.log('Update todo failed')
     );
@@ -89,14 +87,13 @@ export class TodoService {
       (data) => {
         this.dataStore.todos.push(data);
         this._todos.next(Object.assign({}, this.dataStore).todos);
-        
+
         //navigate to main list page from create page
         //place here to ensure api finishes and main list is updated
         // settimeout to give UI feedback on create page
-        // setTimeout(() => {
-        //   this.router.navigate(['']);
-        // }, 1000);
-
+        setTimeout(() => {
+          this.router.navigate(['']);
+        }, 700);
       },
       (error) => console.log('Create todo failed')
     );
@@ -113,15 +110,8 @@ export class TodoService {
           }
         });
         this._todos.next(Object.assign({}, this.dataStore).todos);
-
       },
       (error) => console.log('Update todo failed')
     );
   }
-
-
-
-
-
-
 }

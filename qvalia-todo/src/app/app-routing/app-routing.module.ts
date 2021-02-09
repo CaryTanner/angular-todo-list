@@ -5,13 +5,21 @@ import { EditPageComponent } from '../components/edit-page/edit-page.component';
 import { CreatePageComponent } from '../components/create-page/create-page.component';
 
 const routes: Routes = [
-  { path: '', component: TodoListComponent  },
-  { path: 'edit/:id', component: EditPageComponent, data: { animation: 'isLeft' }},
-  { path: 'create', component: CreatePageComponent, data: { animation: 'isRight' }}
+  { path: '', component: TodoListComponent },
+  {
+    path: 'edit/:id',
+    component: EditPageComponent,
+    data: { animation: 'isLeft' },
+  },
+  {
+    path: 'create',
+    component: CreatePageComponent,
+    data: { animation: 'isRight' },
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

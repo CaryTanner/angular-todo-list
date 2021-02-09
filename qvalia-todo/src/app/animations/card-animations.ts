@@ -42,5 +42,4 @@ export const cardSlide = trigger('cardAnimations', [
       { optional: true }
     ),
   ]),
-
 ]);

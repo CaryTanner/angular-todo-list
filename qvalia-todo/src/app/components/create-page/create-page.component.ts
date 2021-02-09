@@ -3,40 +3,35 @@ import { FormControl, Validators } from '@angular/forms';
 import * as feather from 'feather-icons';
 import { TodoService } from 'src/app/services/todo.service';
 
-
 @Component({
   selector: 'app-create-page',
   templateUrl: './create-page.component.html',
-  
 })
 export class CreatePageComponent implements OnInit {
-  content = new FormControl('', [Validators.required])
-  showMessage: boolean = false
-  
-  constructor(private todoService: TodoService) { }
+  content = new FormControl('', [Validators.required]);
+  showMessage: boolean = false;
+
+  constructor(private todoService: TodoService) {}
 
   ngOnInit(): void {
-    feather.replace()
+    feather.replace();
 
-    //fetch all todos so search bar can use them 
-    this.todoService.fetchTodos()
+    //fetch all todos so search bar can use them
+    this.todoService.fetchTodos();
   }
 
-  setShowMessage(){
-    this.showMessage = true
+  setShowMessage() {
+    this.showMessage = true;
     setTimeout(() => {
-      this.showMessage = false
-    }, 2000)
+      this.showMessage = false;
+    }, 2000);
   }
 
-  onSubmit(){
-  
-   if(this.content.valid) { 
-   this.todoService.addTodo({content: this.content.value})
-   this.content.reset()
-   this.setShowMessage() 
-  } 
-   
+  onSubmit() {
+    if (this.content.valid) {
+      this.todoService.addTodo({ content: this.content.value });
+      this.content.reset();
+      this.setShowMessage();
+    }
   }
-
 }

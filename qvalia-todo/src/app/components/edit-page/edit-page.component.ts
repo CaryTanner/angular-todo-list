@@ -13,9 +13,9 @@ import { TodoService } from 'src/app/services/todo.service';
 })
 export class EditPageComponent implements OnInit {
   content = new FormControl('', [Validators.required]);
-  todo: Observable<Todo>
+  todo: Observable<Todo>;
   todoID: string;
-  showMessage: boolean = false
+  showMessage: boolean = false;
 
   constructor(
     private todoService: TodoService,
@@ -29,39 +29,30 @@ export class EditPageComponent implements OnInit {
     const routeParams = this.route.snapshot.paramMap;
     this.todoID = routeParams.get('id');
     //get all todos so this one can update the correct index
-    this.todoService.fetchTodos()
+    this.todoService.fetchTodos();
     //get single todo from param id & populate input value
-    this.todo = this.todoService.getSingleTodo(this.todoID).pipe(tap(todo => this.content.patchValue(todo.content)))
-    
-     
+    this.todo = this.todoService
+      .getSingleTodo(this.todoID)
+      .pipe(tap((todo) => this.content.patchValue(todo.content)));
   }
 
-  setShowMessage(){
-    this.showMessage = true
+  setShowMessage() {
+    this.showMessage = true;
     setTimeout(() => {
-      this.showMessage = false
-      
-    }, 1700)
+      this.showMessage = false;
+    }, 1700);
   }
 
- sendUpdate = async () => {}
+  sendUpdate = async () => {};
 
-
- 
   onSubmit = async () => {
     if (this.content.valid) {
+      this.setShowMessage();
 
-      this.setShowMessage()
-
-     this.todoService.updateTodo({
+      this.todoService.updateTodo({
         content: this.content.value,
         _id: this.todoID,
-        
       });
-      
-      
-
-    
     }
   };
 }

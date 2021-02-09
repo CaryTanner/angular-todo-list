@@ -13,6 +13,7 @@
   border: none;
 }
 
+
 h1 {
   font-size: 1.8rem;
   font-weight: normal;
@@ -105,26 +106,24 @@ button,
   input {
     font-size: 1rem;
     height: 1.5rem;
-    padding: .25rem 0.5rem;
+    padding: 0.25rem 0.5rem;
     border-radius: $borderRadius;
     transition: 300ms ease-out;
     width: 220px;
-    border-bottom: 0px ;
-    
-    &:focus-within{
+    border-bottom: 0px;
+
+    &:focus-within {
       width: 450px;
-    max-width: 80vw; 
+      max-width: 80vw;
     }
-    
   }
 
-
-  .search-results{
+  .search-results {
     position: absolute;
     border-radius: $borderRadius;
     width: 220px;
     max-width: 80vw;
-    background-color: $contrastColor; 
+    background-color: $contrastColor;
     transform: translate(0, 1.6rem);
     z-index: 3;
     box-shadow: 0 5px 5px 1px rgba(0, 0, 0, 0.15);
@@ -132,39 +131,35 @@ button,
     max-height: 0px;
     overflow: hidden;
 
-      .todo-card{
-        box-shadow: none;
-        margin: 0 auto;
-        transition: 200ms;
-        
+    .todo-card {
+      box-shadow: none;
+      margin: 0 auto;
+      transition: 200ms;
 
-        &:hover {
-          background-color: rgba(0, 0, 0, .05);
-        }
-        
-      }  
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+    }
   }
 
   .open-search-menu {
     width: 450px;
-    max-width: 80vw; 
+    max-width: 80vw;
   }
 
-  .open-results-menu{
+  .open-results-menu {
     max-height: 3000px;
     overflow: auto;
     width: 477px;
-    max-width: calc(80vw + 27px);// plus size of icon
+    max-width: calc(80vw + 27px); // plus size of icon
   }
-
-
 }
 
 //----------to do list ----------- ///
 
 .todo-list {
   margin: 3rem auto;
- 
+
   max-width: 500px;
   min-height: 500px;
 
@@ -176,10 +171,9 @@ button,
     display: flex;
     justify-content: flex-end;
   }
-
 }
 
-.finished-text{
+.finished-text {
   margin: 10px auto;
   width: 100%;
   text-align: center;
@@ -207,7 +201,7 @@ button,
     min-width: 150px;
     display: flex;
     justify-content: space-evenly;
-    transition: opacity 200ms; 
+    transition: opacity 200ms;
   }
 
   .icon {
@@ -221,8 +215,6 @@ button,
     box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.1);
     transition: 300ms;
     border: 1px solid $lightColor;
-    
-    
 
     &:hover {
       background-color: $primaryColor;
@@ -231,11 +223,9 @@ button,
       box-shadow: 0 1px 2px 1px rgba(0, 0, 0, 0.2);
     }
   }
-  .todo-complete{
+  .todo-complete {
     text-decoration: line-through;
   }
-  
-
 }
 
 // --- edit & add todo forms  --- //
@@ -251,6 +241,7 @@ button,
   justify-content: space-around;
   padding: 0 2rem;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #fff;
 
   input {
     width: 100%;
@@ -261,10 +252,9 @@ button,
   }
 
   .ng-invalid.ng-touched {
-    border-color: #d9534e !important; 
+    border-color: #d9534e !important;
   }
 
-  
   .error {
     font-size: 1rem;
     color: #d9534e;
@@ -272,10 +262,10 @@ button,
     text-align: left;
     margin: 5px 0;
     opacity: 0;
-    transition: 200ms;    
+    transition: 200ms;
   }
 
-  .success-message{
+  .success-message {
     font-size: 1rem;
     color: $textColor;
     position: absolute;
@@ -286,9 +276,9 @@ button,
     opacity: 0;
   }
   //show success and error messages
- .visible{
+  .visible {
     opacity: 1;
-    transform: translate(0, 0)
+    transform: translate(0, 0);
   }
 
   .button-container {
@@ -297,11 +287,11 @@ button,
     justify-content: space-between;
   }
 
-  .disabled{
-    opacity: .5;
+  .disabled {
+    opacity: 0.5;
     cursor: default;
 
-    &:hover{
+    &:hover {
       background-color: $primaryColor;
     }
   }
@@ -342,5 +332,3 @@ button,
     min-height: 90px;
   }
 }
-
-

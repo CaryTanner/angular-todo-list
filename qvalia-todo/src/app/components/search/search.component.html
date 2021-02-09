@@ -21,7 +21,6 @@
     <app-todo-card
       *ngFor="let todo of unfinished | async | appFilter: this.searchText.value"
       [todo]="todo"
-      
     ></app-todo-card>
   </div>
 </form>
