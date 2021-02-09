@@ -1,6 +1,15 @@
 {
-    "scripts": {
+  "scripts": {
     "start": "node npm run start --prefix todo-server ",
     "heroku-postbuild": "cd qvalia-todo && npm install && npm run build"
- }
+  },
+  "engines": {
+    "node": "14.15.4"
+  },
+  "name": "code-test-qvalia",
+  "description": "-----------------------------------------------",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
