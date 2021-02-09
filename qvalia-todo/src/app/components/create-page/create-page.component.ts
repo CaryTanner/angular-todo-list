@@ -16,8 +16,7 @@ export class CreatePageComponent implements OnInit {
   ngOnInit(): void {
     feather.replace();
 
-    //fetch all todos so search bar can use them
-    this.todoService.fetchTodos();
+    
   }
 
   setShowMessage() {

@@ -28,8 +28,9 @@ export class EditPageComponent implements OnInit {
 
     const routeParams = this.route.snapshot.paramMap;
     this.todoID = routeParams.get('id');
-    //get all todos so this one can update the correct index
-    this.todoService.fetchTodos();
+
+  
+
     //get single todo from param id & populate input value
     this.todo = this.todoService
       .getSingleTodo(this.todoID)
@@ -43,9 +44,9 @@ export class EditPageComponent implements OnInit {
     }, 1700);
   }
 
-  sendUpdate = async () => {};
+ 
 
-  onSubmit = async () => {
+  onSubmit = () => {
     if (this.content.valid) {
       this.setShowMessage();
 

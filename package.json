@@ -1,0 +1,6 @@
+{
+    "scripts": {
+    "start": "node todo-server/server.js",
+    "heroku-postbuild": "cd qvalia-todo && npm install && npm run build"
+ }
+}
