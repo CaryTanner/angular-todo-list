@@ -9,7 +9,6 @@
     "server": "nodemon -r esm server.js",
     "client": "npm start --prefix ../qvalia-todo",
     "dev": "concurrently \"npm run server\" \"npm run client\""
-    
   },
   "engines": {
     "node": "14.15.4"
