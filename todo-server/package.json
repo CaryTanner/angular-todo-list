@@ -7,9 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node -r esm server.js",
     "server": "nodemon -r esm server.js",
-    "client": "npm start --prefix ../qvalia-todo",
+    "client": "npm start --prefix qvalia-todo",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../qvalia-todo && npm run build --prefix ../qvalia-todo"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix qvalia-todo && npm run build --prefix qvalia-todo"
   },
   "engines": {
     "node": "14.15.4"
