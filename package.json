@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node npm run start --prefix todo-server ",
+    "start": "cd todo-server && npm run start",
     "heroku-postbuild": "cd qvalia-todo && npm install && npm run build"
   },
   "engines": {
